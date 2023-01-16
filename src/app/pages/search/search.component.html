@@ -1,42 +1,42 @@
-
-    <h1 class="p-3 text-center">Wether Application</h1>
+<h1 class="p-3 text-center">Wether Application</h1>
 <div class="p-3 border border-secondary border-2 rounded">
     <form [formGroup]="form" (ngSubmit)="search(form.value)">
-    <div class="form-group mt-3">
-        <label for="" class="form-label fw-bolder">Select city</label>
-        <select name="" id="" formControlName="name" class="form-control">
-            <option *ngFor="let seach of searchData" [value]="seach.name">{{seach.name}}</option>
-        </select>
-    </div>
-    <div class="form-group mt-4">
-        <label for="" class="form-label fw-bolder">Select days</label>
-        <select name="" id="" formControlName="days" class="form-control ">
-            <option value="0" [defaultSelected]="true">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <div class="form-group mt-4 fw-bolder">
-            <label for="" class="form-label">Air Quality Index</label>
-            <div>
-                <input class="form-check-label " type="radio" name="aqi" value="yes" formControlName="aqi" id=""> Yes
-                <input class="form-check-label ms-5" type="radio" name="aqi" value="no" formControlName="aqi" id=""
-                    [checked]="true"> No
+        <div class="form-group mt-3">
+            <label for="" class="form-label fw-bolder">Select city</label>
+            <select name="" id="" formControlName="name" class="form-control">
+                <option *ngFor="let seach of searchData" [value]="seach.name">{{seach.name}}</option>
+            </select>
+        </div>
+        <div class="form-group mt-4">
+            <label for="" class="form-label fw-bolder">Select days</label>
+            <select name="" id="" formControlName="days" class="form-control ">
+                <option value="0" [defaultSelected]="true">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <div class="form-group mt-4 fw-bolder">
+                <label for="" class="form-label">Air Quality Index</label>
+                <div>
+                    <input class="form-check-label " type="radio" name="aqi" value="yes" formControlName="aqi" id="">
+                    Yes
+                    <input class="form-check-label ms-5" type="radio" name="aqi" value="no" formControlName="aqi" id=""
+                        [checked]="true"> No
+                </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center align-item-enter">
-            <button type="submit" class="btn btn-global mt-5  px-5 text-nowrap fw-bolder">Get Forecast</button>
-        </div>
+            <div class="d-flex justify-content-center align-item-enter">
+                <button type="submit" class="btn btn-global mt-5  px-5 text-nowrap fw-bolder">Get Forecast</button>
+            </div>
 
-    </div>
-</form>
+        </div>
+    </form>
 </div>
 <section *ngIf="(weatherData && weatherData.location &&  weatherData.location.name != null) || weatherData == {} ">
     <div class="card p-2 whather-dispaly vh-50 text-white mt-4 " [hidden]="currentIndex>=1">
@@ -72,14 +72,14 @@
             </div>
         </ng-container> .
     </div>
-    <div class="d-flex justify-content-center mt-5" >
+    <div class="d-flex justify-content-center mt-5">
         <button class="btn btn-global text fw-bolder ms-3" [disabled]="!filterEdweatherData.length || currentIndex==0"
             (click)="pre()">Previous Day</button>
         <button class="btn btn-global text fw-bolder  ms-3"
             [disabled]="!filterEdweatherData.length || currentIndex==filterEdweatherData.length -1"
             (click)="next()">Next Day</button>
     </div>
-   
+
 
     <!--  -->
 
@@ -154,118 +154,102 @@
                     </td>
                 </tr>
             </thead>
-            <!-- <tbody>
-                <ng-container >  
-                    <tr><ng-container *ngIf="group.hour.length >10">
-                        <th *ngFor="let item of group.hour; let i=index">
-                            
-                                 {{i}}
-                            {{item.time}}
-                            
-                           
-                        </th></ng-container>
-                    </tr>   
-                    </ng-container>
-            </tbody> -->
-
         </table>
     </div>
-        <div class="overflow-auto border border-2  temp-table">
-            <table class="table table-bordered  overflo-auto ">
-                <tr>
-                    <th class="bg-black ">
+    <div class="overflow-auto border border-2  temp-table">
+        <table class="table table-bordered  overflo-auto ">
+            <tr>
+                <th class="bg-black ">
 
-                    </th>
-                    <th
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <div class="px-3 text-center ">
-                            {{item.time | date:'dd:MMM' }}
-                        </div>
-                        <div class="px-3 text-center">
-                            {{item.time | date:'HH'}}
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        icon
+                </th>
+                <th
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <div class="px-3 text-center ">
+                        {{item.time | date:'dd:MMM' }}
+                    </div>
+                    <div class="px-3 text-center">
+                        {{item.time | date:'HH'}}
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    icon
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        <img [src]="item.condition.icon" alt="" srcset="">
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            <img [src]="item.condition.icon" alt="" srcset="">
-                        </td>
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Temp
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Temp
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.temp_f}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.temp_f}}
-                        </td>
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Wind
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Wind
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.wind_mph}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.wind_mph}}
-                        </td>
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Precip
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Precip
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.precip_in}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.precip_in}}
-                        </td>
 
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Cloud
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Cloud
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.cloud}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.cloud}}
-                        </td>
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Humidity
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Humidity
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.humidity}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.humidity}}
-                        </td>
-                    </ng-container>
-                </tr>
-                <tr>
-                    <td class="bg-black text-white p-3">
-                        Pressure
+                </ng-container>
+            </tr>
+            <tr>
+                <td class="bg-black text-white p-3">
+                    Pressure
+                </td>
+                <ng-container
+                    *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
+                    <td class="text-center px-3">
+                        {{item.pressure_in}}
                     </td>
-                    <ng-container
-                        *ngFor="let item of (filterEdweatherData[currentIndex]&& filterEdweatherData[currentIndex].hour || []); let i=index">
-                        <td class="text-center px-3">
-                            {{item.pressure_in}}
-                        </td>
-                    </ng-container>
-                </tr>
-            </table>
-        </div>
-
-
+                </ng-container>
+            </tr>
+        </table>
+    </div>
 </section>

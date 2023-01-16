@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { count } from 'rxjs';
 import { ForecastService } from 'src/app/config/forecast.service';
 import { search } from 'src/app/config/search-interface';
 
