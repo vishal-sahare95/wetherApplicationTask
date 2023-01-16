@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --container-bg: #f2ffcb;
+    --normal-table:#ededed;
+    --color-white:#ffffff;
+  }
+.wrap {
+    background: var(--container-bg);
+    min-height: 100vh;
+    .btn-global{
+        background:rgb(23,43,58);
+        background: linear-gradient(186deg, rgb(23, 43, 58) 0%, rgb(17 38 58) 36%, rgb(66 120 155) 100%);
+        color: var(--color-white);
+        &:active{
+            color: var(--color-white);
+            font-size: 100%;
+        }
+    }
+    .whather-dispaly{background:rgb(23,43,58);
+        background: linear-gradient(186deg, rgb(23, 43, 58) 0%, rgb(17 38 58) 36%, rgb(66 120 155) 100%);
+       
+        .img-cntainer{
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .temp-container{
+            font-size: 20px;
+            font-weight: 400;
+
+        }
+    }
+    .temp-arg{
+        background: var(--container-bg);
+    }
+    .temp-table{
+        background:var(--container-bg);
+    }
+}
